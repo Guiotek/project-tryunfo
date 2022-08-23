@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class Form extends Component {
   render() {
@@ -11,8 +12,8 @@ class Form extends Component {
       cardImage,
       cardRare,
       cardTrunfo,
-      hasTrunfo,
-      isSaveButtonDisabled,
+      // hasTrunfo,
+      // isSaveButtonDisabled,
       onInputChange,
       onSaveButtonClick,
     } = this.props;
@@ -92,9 +93,9 @@ class Form extends Component {
               value={ cardRare }
               onChange={ onInputChange }
             >
-              <option value="Normal" selected>Normal</option>
-              <option value="Raro">Raro</option>
-              <option value="Muito Raro">Muito Raro</option>
+              <option value="Normal">normal</option>
+              <option value="Raro">raro</option>
+              <option value="Muito Raro">muito raro</option>
             </select>
           </label>
 
@@ -121,5 +122,19 @@ class Form extends Component {
     );
   }
 }
+Form.propTypes = {
+  cardName: PropTypes.string.isRequired,
+  cardDescription: PropTypes.string.isRequired,
+  cardAttr1: PropTypes.string.isRequired,
+  cardAttr2: PropTypes.string.isRequired,
+  cardAttr3: PropTypes.string.isRequired,
+  cardImage: PropTypes.string.isRequired,
+  cardRare: PropTypes.string.isRequired,
+  cardTrunfo: PropTypes.bool.isRequired,
+  // hasTrunfo: PropTypes.bool.isRequired,
+  // isSaveButtonDisabled: PropTypes.bool.isRequired,
+  onInputChange: PropTypes.bool.isRequired,
+  onSaveButtonClick: PropTypes.bool.isRequired,
+};
 
 export default Form;

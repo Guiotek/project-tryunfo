@@ -2,38 +2,120 @@ import React, { Component } from 'react';
 
 class Form extends Component {
   render() {
+    const {
+      cardName,
+      cardDescription,
+      cardAttr1,
+      cardAttr2,
+      cardAttr3,
+      cardImage,
+      cardRare,
+      cardTrunfo,
+      hasTrunfo,
+      isSaveButtonDisabled,
+      onInputChange,
+      onSaveButtonClick,
+    } = this.props;
+
     return (
       <div>
         <form>
           <label htmlFor="name">
-            <input name="none" type="text" data-testid="name-input" id="name" />
+            <input
+              name="none"
+              type="text"
+              data-testid="name-input"
+              id="name"
+              value={ cardName }
+              onChange={ onInputChange }
+            />
           </label>
+
           <label htmlFor="textarea">
-            <textarea data-testid="description-input" id="textarea" />
+            <textarea
+              data-testid="description-input"
+              id="textarea"
+              value={ cardDescription }
+              onChange={ onInputChange }
+            />
           </label>
+
           <label htmlFor="attr1">
-            <input name="attr1" type="number" data-testid="attr1-input" id="attr1" />
+            <input
+              name="attr1"
+              type="number"
+              data-testid="attr1-input"
+              id="attr1"
+              value={ cardAttr1 }
+              onChange={ onInputChange }
+            />
           </label>
+
           <label htmlFor="attr2">
-            <input name="attr2" type="number" data-testid="attr2-input" id="attr2" />
+            <input
+              name="attr2"
+              type="number"
+              data-testid="attr2-input"
+              id="attr2"
+              value={ cardAttr2 }
+              onChange={ onInputChange }
+            />
           </label>
+
           <label htmlFor="attr3">
-            <input name="attr3" type="number" data-testid="attr3-input" id="attr3" />
+            <input
+              name="attr3"
+              type="number"
+              data-testid="attr3-input"
+              id="attr3"
+              value={ cardAttr3 }
+              onChange={ onInputChange }
+            />
           </label>
+
           <label htmlFor="Image">
-            <input name="Image" type="text" data-testid="image-input" id="Image" />
+            <input
+              name="Image"
+              type="text"
+              data-testid="image-input"
+              id="Image"
+              value={ cardImage }
+              onChange={ onInputChange }
+            />
           </label>
+
           <label htmlFor="rare">
-            <select name="rare" data-testid="rare-input" id="rare">
+            <select
+              name="rare"
+              data-testid="rare-input"
+              id="rare"
+              value={ cardRare }
+              onChange={ onInputChange }
+            >
               <option value="Normal" selected>Normal</option>
               <option value="Raro">Raro</option>
               <option value="Muito Raro">Muito Raro</option>
             </select>
           </label>
+
           <label htmlFor="trunfo">
-            <input name="trunfo" type="checkbox" data-testid="trunfo-input" id="trunfo" />
+            <input
+              name="trunfo"
+              type="checkbox"
+              data-testid="trunfo-input"
+              id="trunfo"
+              checked={ cardTrunfo }
+              onChange={ onInputChange }
+            />
           </label>
-          <button type="button" data-testid="save-button"> Salvar </button>
+
+          <button
+            type="button"
+            data-testid="save-button"
+            onClick={ onSaveButtonClick }
+          >
+            Salvar
+          </button>
         </form>
       </div>
     );

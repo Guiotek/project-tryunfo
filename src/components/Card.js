@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class Card extends Component {
   render() {
@@ -13,16 +14,21 @@ class Card extends Component {
       cardTrunfo,
     } = this.props;
 
+    const verify = (param) => {
+      if (param === true) {
+        return <h2 data-testid="trunfo-card">Super Trunfo</h2>;
+      }
+    };
     return (
       <div>
-        <h1>{cardName}</h1>
-        <img src={ cardImage } alt="imagem" />
-        <p>{cardDescription}</p>
-        <h3>{cardAttr1}</h3>
-        <h3>{cardAttr2}</h3>
-        <h3>{cardAttr3}</h3>
-        <h3>{cardRare}</h3>
-        <h2>{cardTrunfo}</h2>
+        <h1 data-testid="name-card">{cardName}</h1>
+        <img src={ cardImage } alt={ cardName } data-testid="image-card" />
+        <p data-testid="description-card">{cardDescription}</p>
+        <h3 data-testid="attr1-card">{cardAttr1}</h3>
+        <h3 data-testid="attr2-card">{cardAttr2}</h3>
+        <h3 data-testid="attr3-card">{cardAttr3}</h3>
+        <h3 data-testid="rare-card">{cardRare}</h3>
+        {verify(cardTrunfo)}
       </div>
     );
   }

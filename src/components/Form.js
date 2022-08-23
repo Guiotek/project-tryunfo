@@ -13,7 +13,7 @@ class Form extends Component {
       cardRare,
       cardTrunfo,
       // hasTrunfo,
-      // isSaveButtonDisabled,
+      isSaveButtonDisabled,
       onInputChange,
       onSaveButtonClick,
     } = this.props;
@@ -114,6 +114,7 @@ class Form extends Component {
             type="button"
             data-testid="save-button"
             onClick={ onSaveButtonClick }
+            disabled={ isSaveButtonDisabled }
           >
             Salvar
           </button>
@@ -132,7 +133,7 @@ Form.propTypes = {
   cardRare: PropTypes.string.isRequired,
   cardTrunfo: PropTypes.bool.isRequired,
   // hasTrunfo: PropTypes.bool.isRequired,
-  // isSaveButtonDisabled: PropTypes.bool.isRequired,
+  isSaveButtonDisabled: PropTypes.bool.isRequired,
   onInputChange: PropTypes.bool.isRequired,
   onSaveButtonClick: PropTypes.bool.isRequired,
 };

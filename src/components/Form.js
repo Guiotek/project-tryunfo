@@ -93,9 +93,9 @@ class Form extends Component {
               value={ cardRare }
               onChange={ onInputChange }
             >
-              <option value="Normal">normal</option>
-              <option value="Raro">raro</option>
-              <option value="Muito Raro">muito raro</option>
+              <option value="normal">normal</option>
+              <option value="raro">raro</option>
+              <option value="muito raro">muito raro</option>
             </select>
           </label>
 

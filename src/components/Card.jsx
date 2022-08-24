@@ -19,6 +19,7 @@ class Card extends Component {
         return <h2 data-testid="trunfo-card">Super Trunfo</h2>;
       }
     };
+
     return (
       <div>
         <h1 data-testid="name-card">{cardName}</h1>
@@ -36,9 +37,9 @@ class Card extends Component {
 Card.propTypes = {
   cardName: PropTypes.string.isRequired,
   cardDescription: PropTypes.string.isRequired,
-  cardAttr1: PropTypes.string.isRequired,
-  cardAttr2: PropTypes.string.isRequired,
-  cardAttr3: PropTypes.string.isRequired,
+  cardAttr1: PropTypes.number.isRequired,
+  cardAttr2: PropTypes.number.isRequired,
+  cardAttr3: PropTypes.number.isRequired,
   cardImage: PropTypes.string.isRequired,
   cardRare: PropTypes.string.isRequired,
   cardTrunfo: PropTypes.bool.isRequired,

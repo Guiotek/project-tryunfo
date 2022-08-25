@@ -25,27 +25,21 @@ class App extends React.Component {
         cardName,
         cardDescription,
         cardImage,
-        cardRare,
         cardAttr1,
         cardAttr2,
         cardAttr3,
       } = this.state;
       const a = parseInt(cardAttr1, 10)
       + parseInt(cardAttr2, 10) + parseInt(cardAttr3, 10);
-      const b = 120;
+      const b = 210;
       const c = 90;
-      let d = false;
       const e = parseInt(cardAttr1, 10);
+      console.log(typeof e);
       const f = parseInt(cardAttr2, 10);
       const g = parseInt(cardAttr3, 10);
-      if (cardRare === 'normal'
-      || cardRare === 'raro' || cardRare === 'muito raro'
-      ) {
-        d = true;
-      }
       if (cardName !== '' && cardDescription !== '' && cardImage !== '' && a <= b
-      && e <= c && e > 0 && f <= c && f > 0
-      && g <= c && g > 0 && d === true) {
+      && e <= c && e >= 0 && f <= c && f >= 0
+      && g <= c && g >= 0) {
         this.setState({
           isSaveButtonDisabled: false,
         });

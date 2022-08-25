@@ -22,8 +22,7 @@ class App extends React.Component {
       [name]: value,
     });
     const {
-      cardName,
-      cardDescription, cardImage, cardAttr1, cardAttr2, cardAttr3, isSaveButtonDisable,
+      cardName, cardDescription, cardImage, cardAttr1, cardAttr2, cardAttr3,
     } = this.state;
     if (
       cardName === '' || cardDescription === '' || cardImage === ''

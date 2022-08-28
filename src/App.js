@@ -61,6 +61,14 @@ class App extends React.Component {
     });
   };
 
+  deleteItem = (i) => {
+    const { data } = this.state;
+    const a = data.filter((e) => e !== i);
+    this.setState({
+      data: [...a],
+    }, () => this.verifyTrunfo());
+  };
+
   onSaveButtonClick = (info) => {
     this.setState((prev) => ({
       data: [...prev.data, info],
@@ -121,17 +129,30 @@ class App extends React.Component {
           cardTrunfo={ cardTrunfo }
         />
         {
-          data.map((item) => (<Card
-            key={ item.cardName }
-            cardName={ item.cardName }
-            cardDescription={ item.cardDescription }
-            cardAttr1={ item.cardAttr1 }
-            cardAttr2={ item.cardAttr2 }
-            cardAttr3={ item.cardAttr3 }
-            cardImage={ item.cardImage }
-            cardRare={ item.cardRare }
-            cardTrunfo={ item.cardTrunfo }
-          />))
+          data.map((item) => (
+            <div
+              key={ item.cardName }
+            >
+              <Card
+                cardName={ item.cardName }
+                cardDescription={ item.cardDescription }
+                cardAttr1={ item.cardAttr1 }
+                cardAttr2={ item.cardAttr2 }
+                cardAttr3={ item.cardAttr3 }
+                cardImage={ item.cardImage }
+                cardRare={ item.cardRare }
+                cardTrunfo={ item.cardTrunfo }
+              />
+
+              <button
+                type="button"
+                data-testid="delete-button"
+                onClick={ () => this.deleteItem(item) }
+              >
+                Excluir
+              </button>
+            </div>
+          ))
         }
       </div>
     );

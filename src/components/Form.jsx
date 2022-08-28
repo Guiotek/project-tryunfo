@@ -15,8 +15,37 @@ class Form extends Component {
       isSaveButtonDisabled,
       onInputChange,
       onSaveButtonClick,
+      hasTrunfo,
     } = this.props;
 
+    const verifyHasTrunfo = () => {
+      const a = hasTrunfo;
+      const b = (
+        <p
+          name="cardTrunfo"
+          data-testid="trunfo-input"
+          id="trunfo"
+        >
+          Você já tem um Super Trunfo em seu baralho
+        </p>
+      );
+      const c = (
+        <label htmlFor="trunfo">
+          <input
+            name="cardTrunfo"
+            type="checkbox"
+            data-testid="trunfo-input"
+            id="trunfo"
+            checked={ cardTrunfo }
+            onChange={ onInputChange }
+          />
+        </label>
+      );
+      if (a === true) {
+        return b;
+      }
+      return c;
+    };
     return (
       <div>
         <form>
@@ -99,22 +128,22 @@ class Form extends Component {
             </select>
           </label>
 
-          <label htmlFor="trunfo">
-            <input
-              name="cardTrunfo"
-              type="checkbox"
-              data-testid="trunfo-input"
-              id="trunfo"
-              checked={ cardTrunfo }
-              onChange={ onInputChange }
-            />
-          </label>
+          {verifyHasTrunfo()}
 
           <button
             type="button"
             data-testid="save-button"
             disabled={ isSaveButtonDisabled }
-            onClick={ onSaveButtonClick }
+            onClick={ () => onSaveButtonClick({
+              cardName,
+              cardDescription,
+              cardAttr1,
+              cardAttr2,
+              cardAttr3,
+              cardImage,
+              cardRare,
+              cardTrunfo,
+            }) }
           >
             Salvar
           </button>
@@ -133,6 +162,7 @@ Form.propTypes = {
   cardImage: PropTypes.string.isRequired,
   cardRare: PropTypes.string.isRequired,
   cardTrunfo: PropTypes.bool.isRequired,
+  hasTrunfo: PropTypes.bool.isRequired,
   isSaveButtonDisabled: PropTypes.bool.isRequired,
   onInputChange: PropTypes.func.isRequired,
   onSaveButtonClick: PropTypes.func.isRequired,

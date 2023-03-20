@@ -1,6 +1,7 @@
 import React from 'react';
 import Form from './components/Form';
 import Card from './components/Card';
+import './App.css';
 
 class App extends React.Component {
   state = {
@@ -102,58 +103,60 @@ class App extends React.Component {
       hasTrunfo,
     } = this.state;
     return (
-      <div>
+      <div id="App">
         <h1>Tryunfo</h1>
-        <Form
-          onInputChange={ this.onInputChange }
-          cardName={ cardName }
-          cardDescription={ cardDescription }
-          cardAttr1={ cardAttr1 }
-          cardAttr2={ cardAttr2 }
-          cardAttr3={ cardAttr3 }
-          cardImage={ cardImage }
-          cardRare={ cardRare }
-          cardTrunfo={ cardTrunfo }
-          isSaveButtonDisabled={ isSaveButtonDisabled }
-          onSaveButtonClick={ this.onSaveButtonClick }
-          hasTrunfo={ hasTrunfo }
-        />
-        <Card
-          cardName={ cardName }
-          cardDescription={ cardDescription }
-          cardAttr1={ cardAttr1 }
-          cardAttr2={ cardAttr2 }
-          cardAttr3={ cardAttr3 }
-          cardImage={ cardImage }
-          cardRare={ cardRare }
-          cardTrunfo={ cardTrunfo }
-        />
-        {
-          data.map((item) => (
-            <div
-              key={ item.cardName }
-            >
-              <Card
-                cardName={ item.cardName }
-                cardDescription={ item.cardDescription }
-                cardAttr1={ item.cardAttr1 }
-                cardAttr2={ item.cardAttr2 }
-                cardAttr3={ item.cardAttr3 }
-                cardImage={ item.cardImage }
-                cardRare={ item.cardRare }
-                cardTrunfo={ item.cardTrunfo }
-              />
-
-              <button
-                type="button"
-                data-testid="delete-button"
-                onClick={ () => this.deleteItem(item) }
+        <div id="Items">
+          <Form
+            onInputChange={ this.onInputChange }
+            cardName={ cardName }
+            cardDescription={ cardDescription }
+            cardAttr1={ cardAttr1 }
+            cardAttr2={ cardAttr2 }
+            cardAttr3={ cardAttr3 }
+            cardImage={ cardImage }
+            cardRare={ cardRare }
+            cardTrunfo={ cardTrunfo }
+            isSaveButtonDisabled={ isSaveButtonDisabled }
+            onSaveButtonClick={ this.onSaveButtonClick }
+            hasTrunfo={ hasTrunfo }
+          />
+          <Card
+            cardName={ cardName }
+            cardDescription={ cardDescription }
+            cardAttr1={ cardAttr1 }
+            cardAttr2={ cardAttr2 }
+            cardAttr3={ cardAttr3 }
+            cardImage={ cardImage }
+            cardRare={ cardRare }
+            cardTrunfo={ cardTrunfo }
+          />
+          {
+            data.map((item) => (
+              <div
+                key={ item.cardName }
               >
-                Excluir
-              </button>
-            </div>
-          ))
-        }
+                <Card
+                  cardName={ item.cardName }
+                  cardDescription={ item.cardDescription }
+                  cardAttr1={ item.cardAttr1 }
+                  cardAttr2={ item.cardAttr2 }
+                  cardAttr3={ item.cardAttr3 }
+                  cardImage={ item.cardImage }
+                  cardRare={ item.cardRare }
+                  cardTrunfo={ item.cardTrunfo }
+                />
+
+                <button
+                  type="button"
+                  data-testid="delete-button"
+                  onClick={ () => this.deleteItem(item) }
+                >
+                  Excluir
+                </button>
+              </div>
+            ))
+          }
+        </div>
       </div>
     );
   }
